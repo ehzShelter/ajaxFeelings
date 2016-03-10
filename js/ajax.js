@@ -1,15 +1,34 @@
 //ajax using jquery
 
-$(document).ready(function(){
+$(document).ready(function(){  
+    
+    //for ajax names                             
     var selected="";
     $("#selector").change(function(){                       //change in selector option
          selected=$("#selector").val()+".html";
          $.ajax({url:selected,success:function(result){     //ajax call
                 $("#infodiv").html(result);                 //show result
          }});
+
     });
-    
+
+    //for ajax message board
+    $("#msg_btn").click(function(){
+          $.ajax({url:"message_board.html",success:function(result){     //ajax call
+                $("#ajax_test").html(result);                         //show result
+         }});
+     });
+
+    //for home button
+    $("#home_btn").click(function(){
+          $.ajax({url:"index.html",success:function(result){     //ajax call
+                $(".main").html(result);                         //show result
+         }});
+     });
 });
+
+
+
 
 
 
