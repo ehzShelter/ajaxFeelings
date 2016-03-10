@@ -1,0 +1,45 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
+ 
+
+<br><br>
+ <div class="container">
+  <div class="form-group">
+ 
+  <textarea class="form-control" rows="3" id="comment" placeholder="Type your message here"></textarea>
+  <br>
+  <button type="button" class="btn btn-info btn-sm" id="post_btn">POST</button>
+  <br>
+  <br>
+</div>
+<div class="alert alert-success" role="alert" id="text_out" style="font-size: xx-large;"></div>
+   
+   <h4></h4>
+   <div id="all_post"></div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+	//var msgArr=[];								//glocal var
+	var text="";
+	var count=0;
+
+	$("#comment").keyup(function(){				//capture keys
+		 text=$("#comment").val();
+		$("#text_out").text(text);				//show text entered dynamically
+	});
+	$("#post_btn").click(function(){			//post message
+		count++;
+		var $div = $("<div>", {id: "new_post", class: "alert alert-info"});
+		
+		$div.text("messege "+count+": ");
+		$div.append(text);
+		$("#all_post").prepend($div);
+
+		$("#text_out").text("");				//set textarea to blank
+		$("#comment").val(" ");					
+
+	});
+	
+});
+</script>
