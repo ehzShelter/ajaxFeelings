@@ -1,3 +1,22 @@
+//ajax using jquery
+
+$(document).ready(function(){
+    var selected="";
+    $("#selector").change(function(){                       //change in selector option
+         selected=$("#selector").val()+".html";
+         $.ajax({url:selected,success:function(result){     //ajax call
+                $("#infodiv").html(result);                 //show result
+         }});
+    });
+    
+});
+
+
+
+
+//ajax-with-JS
+
+/*
 function Info(name) {
     // deal with the situation where nothing is chosen
     'use strict';
@@ -20,3 +39,4 @@ function Info(name) {
     ajax.send();
 
 }
+*/
